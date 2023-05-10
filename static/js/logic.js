@@ -36,11 +36,11 @@ function init()
                     color: "black",
                     weight: 1,
                     fillColor: circleColor(depth),
-                    fillOpacity: 1
+                    fillOpacity: 0.7
                 }
             ).bindPopup(`<center><h4>Earthquake Magnitude: ${data.features[i].properties.mag}<br>
-            Time: ${new Date(data.features[i].properties.time)}<br>
-            Location: ${data.features[i].properties.place}</h4></center>`)
+            Location: ${data.features[i].properties.place}<br>
+            Depth: ${depth}</h4></center>`)
             .addTo(myMap);
             
         }
@@ -70,19 +70,6 @@ function init()
     
     }
     legend.addTo(myMap)
-
-    // add tectonic boundaries data
-    d3.json("PB2002_boundaries.json").then(function(tectonic){
-        
-
-        for (var i = 0; i < tectonic.features.length; i++)
-        {    
-            var lines = tectonic.features[i].geometry.coordinates
-            
-        }
-        // console.log(lines)
-
-    })
     
 };
 
